@@ -89,6 +89,8 @@ export class AppComponent implements OnInit {
     }
   }
 
+  //el botón se añade cuando se hace click en los otros botones, el botón no se muestra,
+  //se cliquea al final de manera programática para mostrar el modal adecuado
   public onOpenModal(employee: Employee, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
