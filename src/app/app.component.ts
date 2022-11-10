@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     this.getEmployees();
   }
 
+  //Dentro del subscribe, se puede manejar el error como segundo argumento
   public getEmployees(): void {
     this.employeeService.getEmployees().subscribe(
       (response: Employee[]) => {
