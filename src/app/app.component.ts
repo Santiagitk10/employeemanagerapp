@@ -34,7 +34,10 @@ export class AppComponent implements OnInit {
   }
 
   public onAddEmloyee(addForm: NgForm): void {
+    //para cerrar el form seleccionando el botón cerrar y haciendole click
     document.getElementById('add-employee-form').click();
+    //El value del form se pasa como json con los key siendo el nombre del html, por eso el
+    //servicio espera un objeto de tipo employee
     this.employeeService.addEmployee(addForm.value).subscribe(
       (response: Employee) => {
         console.log(response);

@@ -10,6 +10,7 @@
         </li>
      </ul>
      <form class="form-inline my-2 my-lg-0">
+      <!-- ngModelChange para detectar cambios. name, #key y ngModel necesario para poder pasar el valor-->
         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
      </form>
@@ -62,6 +63,7 @@
           </div>
           <div class="form-group">
              <label for="email">Email Address</label>
+             <!-- Teniendo ngModel y el atributo name se utiliza el valor de name como el key -->
              <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
           </div>
           <div class="form-group">
@@ -78,6 +80,8 @@
           </div>
           <div class="modal-footer">
              <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <!-- Si el form es inválido el form el botón quedaría desabilitado- Es decir 
+            todos los campos del form deben ser llenados-->
              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
           </div>
           </form>
@@ -102,6 +106,8 @@
                  <label for="name">Name</label>
                  <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
               </div>
+              <!-- Estos dos están ocultos porque se necesita pasar el objeto completo al back end,
+             pero estos dos campos no se editan -->
               <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
               <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
               <div class="form-group">
